@@ -39,8 +39,17 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'social_django',
     'login',
+    'django.contrib.sites',
     'dashboard',
+    'oauth2_provider',
+    'rest_framework_social_oauth2',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
 ]
+
+SITE_ID = 1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -69,6 +78,7 @@ TEMPLATES = [
                 'social_django.context_processors.backends',
                 'social_django.context_processors.login_redirect', 
             ],
+            'debug': True
         },
     },
 ]
@@ -80,14 +90,26 @@ WSGI_APPLICATION = 'tracktrigger.wsgi.application'
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'tracktrigger',
-        'USER': 'postgres',
-        'PASSWORD': 'doncampan',
-        'HOST': 'localhost',
-    }
-}
+      'default': {
+          'ENGINE': 'django.db.backends.postgresql',
+          'NAME': 'Mushkan',
+          'USER': 'postgres',
+          'PASSWORD': 'Ra1ncl0ud',
+          'HOST': 'localhost',
+          'PORT': '5432',
+           }
+
+     }
+
+AUTHENTICATION_BACKENDS = [
+    
+    # Needed to login by username in Django admin, regardless of `allauth`
+    'django.contrib.auth.backends.ModelBackend',
+
+    # `allauth` specific authentication methods, such as login by e-mail
+    'allauth.account.auth_backends.AuthenticationBackend',
+    
+]
 
 
 # Password validation
@@ -135,10 +157,11 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'assets')
 AUTHENTICATION_BACKENDS = [
     'social_core.backends.facebook.FacebookOAuth2',
     'django.contrib.auth.backends.ModelBackend',
+    'social_core.backends.google.GoogleOAuth2',
 ]
 
 LOGIN_URL = 'login'
-LOGIN_REDIRECT_URL = ''
+LOGIN_REDIRECT_URL = '/'
 LOGOUT_URL = 'logout'
 LOGOUT_REDIRECT_URL = 'login'
 
@@ -159,3 +182,6 @@ SOCIAL_AUTH_PIPELINE = (
 
 SOCIAL_AUTH_FACEBOOK_KEY = '2817718668486132'
 SOCIAL_AUTH_FACEBOOK_SECRET = '48eb66d1bee9fdfed24a6111dc9da297'
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '363122196526-gjrhjo9a8gv9o4juk01velp2jqjufm52.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'ZwV7wiZIFEHPqLsgyVPZDVx4'
