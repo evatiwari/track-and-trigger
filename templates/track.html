@@ -9,9 +9,9 @@
 
     <!-- Bootstrap CSS -->
     <!-- build:css css/main.css -->
-    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
     <!--link rel="stylesheet"  href="node_modules/bootstrap-social/bootstrap-social.css"-->
-    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
      <style> 
     @import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css););
     </style>
@@ -99,11 +99,11 @@
         <hr>
 
         <ul class="list-group">
-          <li v-for="(item, index) in items" :key="index" class="list-group-item">
-            <button class="btn btn-xs btn-danger" @click="removeItem(index)">Delete</button>
+          <li v-for="(item, index) in items" :key="index" class="card list-group-item">
+            <button class="btn btn-xs btn-darkviolet text-white" @click="removeItem(index)">Delete</button>
             
             {{ (index + 1) }}. {{ item.name }}  
-            <input class="pull-right text-right" style="width:50%" v-model="item.price">
+            <input class="pull-right text-right card" style="width:50%" v-model="item.price">
           </li>
           <li class="list-group-item"> 
             <h4> Total  <span class="pull-right">{{ total }}</span></h4> 
@@ -117,7 +117,7 @@
           </div>
     </div>
   </div>
-  <script src="script.js"></script>
+  <script src="{% static 'js/script.js' %}"></script>
 
 
 </div>
