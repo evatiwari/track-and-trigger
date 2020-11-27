@@ -1,4 +1,3 @@
-{% load static %}
 <!DOCTYPE html>
 
 <html lang="en"> 
@@ -10,9 +9,9 @@
 
     <!-- Bootstrap CSS -->
     <!-- build:css css/main.css -->
-    <link rel="stylesheet" href="{%static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
     <!--link rel="stylesheet"  href="node_modules/bootstrap-social/bootstrap-social.css"-->
-    <link rel="stylesheet" href="{%static 'css/dashboard.css' %}">
+    <link rel="stylesheet" href="dashboard.css">
      <style> 
     @import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css););
     </style>
@@ -50,24 +49,24 @@
         
         <ul class="nav">
           <li>
-            <a href="/">
+            <a href="index.html">
               <p>Dashboard</p>
             </a>
           </li>
           <li class="active">
-            <a href="/track/">
+            <a href="#">
               
               <p>Track</p>
             </a>
           </li>
           <li>
-            <a href="/trigger/">
+            <a href="trigger.html">
             
               <p>Trigger</p>
             </a>
           </li>
           <li>
-            <a href="/userprofile/">
+            <a href="userprofile.html">
               
               <p>User Profile</p>
             </a>
@@ -93,33 +92,26 @@
                   <h3 class="text-purple title">Inventory List</h3>
               </div>
               <div class="card-body">  
-            <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
-                  <div class="mdl-tabs__tab-bar">
-                  <a href="#add-item" class="mdl-tabs__tab is-active">Add Item</a>
-                  <a href="#todo" class="mdl-tabs__tab">Inventory</a>
-                  <a href="#completed" class="mdl-tabs__tab">Utilised Items</a>
-              </div>
+            <form @submit.prevent="addItem">
+            <input v-model="newItem" class="form-control" placeholder="Enter your Item">
+        </form>
+        
+        <hr>
 
-              <div class="mdl-tabs__panel is-active" id="add-item">
-                <div class="mdl-textfield mdl-js-textfield">
-                <input class="mdl-textfield__input" type="text" id="new-task">
-                </div>
-
-              <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored">
-              <i class="material-icons">add</i>
-            </button>
-              </div>
-              <div class="mdl-tabs__panel" id="todo">
-                <ol id="incomplete-tasks">
-                
-              </ol>
-              </div>
-              <div class="mdl-tabs__panel" id="completed">
-                <ul id="completed-tasks" class="mdl-list">
-                
-                 </ul>
-                    </div>
-                  </div>
+        <ul class="list-group">
+          <li v-for="(item, index) in items" :key="index" class="list-group-item">
+            <button class="btn btn-xs btn-danger" @click="removeItem(index)">Delete</button>
+            
+            {{ (index + 1) }}. {{ item.name }}  
+            <input class="pull-right text-right" style="width:50%" v-model="item.price">
+          </li>
+          <li class="list-group-item"> 
+            <h4> Total  <span class="pull-right">{{ total }}</span></h4> 
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
               </div>
             </div>
           </div>
@@ -129,7 +121,38 @@
 
 
 </div>
+<script>
 
+    var app = new Vue({
+      el: '#app',
+      computed: {
+        total() {
+          var total = 0
+          this.items.forEach(item => {
+            total = total + parseFloat(item.price)
+          })
+          return total
+        }
+      },
+      data: {
+        items: [],
+        newItem: ''
+      },
+      methods: {
+        addItem() {
+          this.items.push({
+            name: this.newItem,
+            price: 0.00
+          })
+          this.newItem = ''
+        },
+        removeItem(index) {
+          this.items.splice(index, 1)
+        }
+      }
+    })
+
+  </script>
 
 </body>
 </html>
