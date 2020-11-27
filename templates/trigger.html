@@ -1,0 +1,141 @@
+  {% load static %}
+<!DOCTYPE html>
+
+<html lang="en"> 
+<head>
+      <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <!-- Bootstrap CSS -->
+    <!-- build:css css/main.css -->
+    <link rel="stylesheet" href="{%static 'css/bootstrap.css' %}">
+    <!--link rel="stylesheet"  href="node_modules/bootstrap-social/bootstrap-social.css"-->
+    <link rel="stylesheet" href="{%static 'css/dashboard.css' %}">
+     <style> 
+    @import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css););
+    </style>
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+
+    <!-- endbuild -->
+    <title>Trigger</title>
+</head>
+
+<body class="bodycolor">
+<nav class="navbar navbar-dark navbar-expand-sm  fixed-top" >
+    <div class="container">
+        
+        <a class="navbar-brand mr-auto open" href="#">   T&T</a>
+       
+            <div class="offset-11">
+            <span class="navbar-text">
+                <a class ="btn" id="Button" href="userprofile.html"><span class="fa fa-user open"></span>   User Profile</a>
+            </span>
+        </div>
+    </div>
+   
+    
+</nav>
+
+<div class="wrapper">
+    <div class="sidebar">
+      <!--
+        Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red"
+    -->
+      <div class="sidebar-wrapper">
+        
+        <ul class="nav">
+          <li>
+            <a href="/">
+              <p>Dashboard</p>
+            </a>
+          </li>
+          <li>
+            <a href="/track/">
+              
+              <p>Track</p>
+            </a>
+          </li>
+          <li class="active">
+            <a href="/trigger/">
+            
+              <p>Trigger</p>
+            </a>
+          </li>
+          <li>
+            <a href="/userprofile/">
+              
+              <p>User Profile</p>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              
+              <p>Logout</p>
+            </a>
+          </li>
+          </ul>
+      </div>
+    </div>
+
+
+</div> 
+<div class="main-panel">
+
+<div class="content">
+  <div class="row">
+          <div class="col-md-8">
+            <div class="card">
+              <div class="card-header">
+                  <h3 class="text-purple">Task List</h3>
+              </div>
+              <div class="card-body">
+                  <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+                    <div class="mdl-tabs__tab-bar">
+                      <a href="#add-item" class="mdl-tabs__tab is-active">Add Event</a>
+                      <a href="#todo" class="mdl-tabs__tab">Pending Event</a>
+                      <a href="#completed" class="mdl-tabs__tab">Completed Event</a>
+                    </div>
+
+                    <div class="mdl-tabs__panel is-active" id="add-item">
+                      <div class="mdl-textfield mdl-js-textfield">
+                        <input class="mdl-textfield__input" type="text" id="new-task">
+                      </div>
+
+                      <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored">
+                       <i class="material-icons open">    add</i>
+                      </button>
+                    </div>
+                    <div class="mdl-tabs__panel" id="todo">
+                      <ol id="incomplete-tasks">
+    
+                      </ol>
+                    </div>
+                    <div class="mdl-tabs__panel" id="completed">
+                      <ul id="completed-tasks" class="mdl-list">
+    
+                        
+                      </ul>
+                    </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+
+</div>
+
+
+
+
+
+
+
+</body>
+</html>

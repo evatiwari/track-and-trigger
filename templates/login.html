@@ -1,17 +1,243 @@
-{% extends 'base.html' %}
- {% block title %} Sign in {% endblock %}
- {% block content %}
- <div class="row">
-     <div class="col-md-8 mx-auto social-container my-2 order-md-1">
-         <button class="btn btn-primary mb-2">
-             <a href="{% url 'social:begin' 'facebook' %}">Login with Facebook
-             </a>   
-         </button>
-         <button class="btn btn-primary mb-2">
-            <a href="{% url 'social:begin' 'google-oauth2' %}">Login with Google
-            </a>
-        </button>
-     </div>
- </div>
 
- {% endblock %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- linking bootsrtap4 folders -->
+	{% load static %}  
+	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
+ 
+   <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+   <script src="{% static 'js/jquery.js' %}"></script>
+    <script src="{% static 'js/jquery.bootstrap.modal.forms.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+   <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/login.js' %}"></script>
+    <style> 
+	@import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css););
+	</style>
+    <!--script>alert();</script -->  
+	
+
+	<title>Home Page</title>
+</head>
+
+{% block content %}
+	{% load static %} 
+<body class="bodycolor" >
+	<div class= "container">
+		<div class = "row" ><br/>
+		</div>
+	</div>
+	<div class= "container">
+		<div class = "row" ><br/>
+		</div>
+	</div>
+	<div class= "container">
+		<div class = "row" ><br/>
+		</div>
+	</div>
+	<div class= "container">
+		<div class = "row" >
+			<div class="col-8 offset-2  align-self-center" style="margin: auto; display: block;">
+
+
+
+			 
+				<div class= "card rounded">
+					<h1 class="card-header text-center text-font"> TRACK AND TRIGGER </h1>
+					<div class="card-body align-self-center" >
+						<div class="col-12 text-center">
+						<button class ="btn btn-rose1 btn-lg text-white" id="Button" ><i class="fa fa-sign-in open"></i>  Login</button>
+                    </div>
+                    <br>
+                    <div class="col-12 text-xl-center">
+						<button class ="btn btn-skyblue btn-lg text-white" id="Buttonsign"><span class="fa fa-user-plus open"></span>  Sign Up</button>
+                    </div>
+					</div>
+				</div>
+				
+				
+			</div>
+
+		</div>
+	</div>
+	<div id="loginModal" class="modal" role="dialog">
+        <div class="modal-dialog modal-lg" role="content">
+            <div class="modal-content">
+                <div class="modal-header" id="loginclose">
+                	<div class ="align-self-center">
+                    	<h4 class="modal-title">Login</h4>
+                    </div>
+                    <button type="button" class="close">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-row">
+                            <div class="form-group col-sm-4">
+                                    <label class="sr-only" for="Email">Email address</label>
+                                    <input type="email" class="form-control form-control-sm mr-1" id="Email3" placeholder="Enter email">
+                            </div>
+                            <div class="form-group col-sm-4">
+                                <label class="sr-only" for="Password">Password</label>
+                                <input type="password" class="form-control form-control-sm mr-1" id="Password3" placeholder="Password">
+                            </div>
+                            <div class="col-sm-auto">
+                                <!--div class="form-check"-->
+                                  <div class="form-check">
+                                    <label><input type="checkbox" class="form-check-input align-self-center"> Remember Me</label>
+                                </div> 
+                                <!--/div-->
+                            </div>
+                        </div>
+                        <div class="form-row" id="logincancel">
+                            <button type="button" class="btn btn-rose text-white btn-sm ml-auto " >Cancel</button>
+                            <button type="submit" class="btn btn-rose2 text-white btn-sm ml-1">Sign in</button>        
+                        </div>
+                        <hr>
+                        <div class ="form-row" id= "sitelogin" >
+                        	<div class="form-group col-12 text-center">
+                                  <button type="button" class="btn btn-purple1 text-white"><span class="fa fa-google open"></span>   Google</button>
+                        	
+                                    <button type="button" class="btn btn-purple2 text-white"><span class="fa fa-facebook open"></span>   Facebook</button>
+                            
+                                    <button type="button" class="btn btn-purple3 text-white"><span class="fa fa-instagram open"></span>   Instagram</button>
+                                
+                            </div>
+                        </div>
+                    </form>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+
+
+
+    <div id="signupModal" class="modal" role="dialog">
+        <div class="modal-dialog modal-lg" role="content">
+            <div class="modal-content">
+                <div class="modal-header" id="signupclose">
+                    <h4 class="modal-title">Sign Up</h4>
+                    <button type="button" class="close">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-row">
+                            <!--div class="form-group col-sm-4"-->
+                                <div class="form-group col-sm-10">
+                                    <label class="sr-only" for="FName">First Name</label>
+                                    <input type="text" class="form-control form-control-sm mr-1" id="FName" placeholder="Enter First Name">
+                            </div>
+                            <!--/div-->
+                         </div>
+                         <div class="form-row">
+                            <!--div class="form-group col-sm-4"-->
+                                <div class="form-group col-sm-10">
+                                    <label class="sr-only" for="LName">Last Name</label>
+                                    <input type="text" class="form-control form-control-sm mr-1" id="LName" placeholder="Enter Last Name">
+                            </div>
+                            <!--/div-->
+                         </div>
+                         <div class="form-row">
+                            <!--div class="form-group col-sm-4"-->
+                                <div class="form-group col-sm-10">
+                                    <label class="sr-only" for="Username">Username</label>
+                                    <input type="text" class="form-control form-control-sm mr-1" id="Username" placeholder="Enter Username">
+                            </div>
+                            <!--/div-->
+                         </div>
+                         <div class="form-row">
+                            <!--div class="form-group col-sm-4"-->
+                                <div class="form-group col-sm-10">
+                                    <label class="sr-only" for="Email">Email address</label>
+                                    <input type="email" class="form-control form-control-sm mr-1" id="Email" placeholder="Enter email">
+                            </div>
+                            <!--/div-->
+                         </div>
+                         <div class="form-row">
+                            <!--div class="form-group col-sm-4"-->
+                                <div class="form-group col-sm-10">
+                                    <label class="sr-only" for="Password">Password</label>
+                                    <input type="password" class="form-control form-control-sm mr-1" id="Password" placeholder="Enter Password (min 8 characters)">
+                            </div>
+                            <!--/div-->
+                         </div>
+                         <div class="form-row">
+                            <!--div class="form-group col-sm-4"-->
+                                <div class="form-group col-sm-10">
+                                    <label class="sr-only" for="Passwordc">Confirm Password</label>
+                                    <input type="password" class="form-control form-control-sm mr-1" id="Passwordc" placeholder="Confirm Password">
+                            </div>
+                            <!--/div-->
+                         </div>
+                         <div class="form-row">
+                            <!--div class="form-group col-sm-4"-->
+                                <div class="form-group col-sm-10">
+                                    <label class="sr-only" for="Phone Number">Phone Number</label>
+                                    <input type="tel" class="form-control form-control-sm mr-1" id="PhoneNumber" placeholder="Enter Phone Number">
+                            </div>
+                            <!--/div-->
+                         </div>
+
+
+                          <div class="form-row"><br></div>
+                         <div class="form-row">
+                             <label for="section" class="col-sm-2 align-self-center" >User Type</label>
+                                <div class="btn">
+                                    <button type="radio" class="btn btn-skyblue active" >Home</button>                            
+                            
+                                    <button type="radio" class="btn btn-darkskyblue">Professional</button>
+                                </div>
+                            
+                         </div>
+                          <div class="form-row"><br></div>
+                       
+                        <div class="form-row"><br></div>
+                        <div class="form-row" id="signupcancel" >
+                            
+                                   <button type="button" class="btn btn-rose text-white btn-sm ml-auto " >Cancel</button>
+                                    <button type="submit" class="btn btn-rose2 text-white btn-sm ml-1">Sign in</button>        
+                        
+                            
+                        </div>
+                    </form>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+<script type="text/javascript">
+    $('#Buttonsign').click(function(){
+                $('#signupModal').modal('show');
+
+            
+            });
+
+        
+            $('#signupclose').click(function(){
+                if($('#signupclose').children('button').hasClass('close')){
+                    $('#signupModal').modal('hide') ;
+                    }
+
+            });
+            $('#signupcancel').click(function(){
+                if($('#signupcancel').children('button')){
+                    $('#signupModal').modal('hide') ;
+                    }
+
+            });
+</script>
+
+
+
+</body>
+{% endblock %}
+</html>

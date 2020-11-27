@@ -1,0 +1,112 @@
+ {% load static %}
+<!DOCTYPE html>
+
+<html lang="en"> 
+<head>
+      <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <!-- Bootstrap CSS -->
+    <!-- build:css css/main.css -->
+    <link rel="stylesheet" href="{%static 'css/bootstrap.css' %}">
+    <!--link rel="stylesheet"  href="node_modules/bootstrap-social/bootstrap-social.css"-->
+    <link rel="stylesheet" href="{%static 'css/dashboard.css' %}">
+     <style> 
+    @import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css););
+    </style>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+
+
+    <!-- endbuild -->
+    <title>Dashboard</title>
+</head>
+
+<body class="bodycolor">
+<nav class="navbar navbar-dark navbar-expand-sm  fixed-top" >
+    <div class="container">
+        
+        <a class="navbar-brand mr-auto open" href="#">   T&T</a>
+       
+            <div class="offset-11">
+            <span class="navbar-text">
+                <a class ="btn" id="Button" href="userprofile.html"><span class="fa fa-user open"></span>   User Profile</a>
+            </span>
+        </div>
+    </div>
+   
+    
+</nav>
+
+<div class="wrapper">
+    <div class="sidebar">
+      <!--
+        Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red"
+    -->
+      <div class="sidebar-wrapper">
+        
+        <ul class="nav">
+          <li class="active ">
+            <a href="/">
+              <p>Dashboard</p>
+            </a>
+          </li>
+          <li>
+            <a href="/track/">
+              
+              <p>Track</p>
+            </a>
+          </li>
+          <li>
+            <a href="/trigger/">
+            
+              <p>Trigger</p>
+            </a>
+          </li>
+          <li>
+            <a href="/userprofile/">
+              
+              <p>User Profile</p>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              
+              <p>Logout</p>
+            </a>
+          </li>
+          </ul>
+      </div>
+    </div>
+
+</div>
+    
+<div class="main">
+
+ <header class = "jumbotron" >
+        <div class = "container">
+            <div class ="row row-header">
+                <div class = "col-12 offset-sm-9">
+                    <h1>Track and Trigger</h1>
+                    <div class="offset-2" >
+                        <p >Welcome to Dashboard</p>
+                    </div>
+                </div>
+                  </div>
+
+                   
+                </div>
+            
+    </header>
+
+</div>
+
+
+
+
+
+</body>
+</html>

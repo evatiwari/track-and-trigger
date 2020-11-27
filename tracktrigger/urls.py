@@ -24,7 +24,7 @@ from django.conf.urls import url
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('login/', include('login.urls')),
-    path("logout/", auth_views.LogoutView.as_view(), name="logout"),
+    path('logout/', auth_views.LogoutView.as_view(), name="logout"),
     path('social-auth/', include('social_django.urls', namespace="social")),
     path('', include('dashboard.urls')),
     path('accounts/', include('allauth.urls')),
