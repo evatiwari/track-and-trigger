@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 
 <html lang="en"> 
@@ -49,7 +50,7 @@
         
         <ul class="nav">
           <li>
-            <a href="index.html">
+            <a href="/dashboard/">
               <p>Dashboard</p>
             </a>
           </li>
@@ -60,13 +61,13 @@
             </a>
           </li>
           <li>
-            <a href="trigger.html">
+            <a href="/dashboard/trigger/">
             
               <p>Trigger</p>
             </a>
           </li>
           <li>
-            <a href="userprofile.html">
+            <a href="/dashboard/userprofile/">
               
               <p>User Profile</p>
             </a>
@@ -101,8 +102,7 @@
         <ul class="list-group">
           <li v-for="(item, index) in items" :key="index" class="card list-group-item">
             <button class="btn btn-xs btn-darkviolet text-white" @click="removeItem(index)">Delete</button>
-            
-            {{ (index + 1) }}. {{ item.name }}  
+             
             <input class="pull-right text-right card" style="width:50%" v-model="item.price">
           </li>
           <li class="list-group-item"> 
