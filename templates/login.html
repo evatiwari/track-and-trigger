@@ -11,7 +11,7 @@
  
    <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
    <script src="{% static 'js/jquery.js' %}"></script>
-    <script src="{% static 'js/jquery.bootstrap.modal.forms.js' %}"></script>
+    <script src="{% static 'js/jquery.bootstrap.modal.forms.min.js' %}"></script>
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/login.js' %}"></script>
@@ -93,15 +93,14 @@
                             </div>
                         </div>
                         <div class="form-row" id="logincancel">
-                            <button type="button" class="btn btn-rose text-white btn-sm ml-auto " >Cancel</button>
                             <button type="submit" class="btn btn-rose2 text-white btn-sm ml-1">Sign in</button>        
                         </div>
                         <hr>
                         <div class ="form-row" id= "sitelogin" >
                         	<div class="form-group col-12 text-center">
-                                  <button type="button" class="btn btn-purple1 text-white"><span class="fa fa-google open"></span>   Google</button>
+                                  <button type="button" class="btn btn-purple1 text-white"><span class="fa fa-google open"></span><a href="{% url 'social:begin' 'google-oauth2'%}">Google</a></button>
                         	
-                                    <button type="button" class="btn btn-purple2 text-white"><span class="fa fa-facebook open"></span>   Facebook</button>
+                                    <button type="button" class="btn btn-purple2 text-white"><span class="fa fa-facebook open"></span><a href="{% url 'social:begin' 'facebook' %}">Facebook</a></button>
                             
                                     <button type="button" class="btn btn-purple3 text-white"><span class="fa fa-instagram open"></span>   Instagram</button>
                                 
@@ -126,14 +125,14 @@
                     <button type="button" class="close">&times;</button>
                 </div>
                 <div class="modal-body">
-                    <form method = "POST" action = "login">
+                    <form method = "POST" action = "/">
                         
                          {% csrf_token %}
                          <div class="form-row">
                             <!--div class="form-group col-sm-4"-->
                                 <div class="form-group col-sm-10">
                                     <label class="sr-only" for="Username">Username</label>
-                                    <input type="text" class="form-control form-control-sm mr-1" id="Username" placeholder="Enter Username">
+                                    <input type="text" class="form-control form-control-sm mr-1" id="Username" name = "user_name"placeholder="Enter Username">
                             </div>
                             <!--/div-->
                          </div>
@@ -142,7 +141,7 @@
                             <!--div class="form-group col-sm-4"-->
                                 <div class="form-group col-sm-10">
                                     <label class="sr-only" for="Email">Email address</label>
-                                    <input type="email" class="form-control form-control-sm mr-1" id="Email" placeholder="Enter email">
+                                    <input type="email" class="form-control form-control-sm mr-1" id="Email" name="email" placeholder="Enter email">
                             </div>
                             <!--/div-->
                          </div>
@@ -151,7 +150,7 @@
                             <!--div class="form-group col-sm-4"-->
                                 <div class="form-group col-sm-10">
                                     <label class="sr-only" for="Password">Password</label>
-                                    <input type="password" class="form-control form-control-sm mr-1" id="Password" placeholder="Enter Password (min 8 characters)">
+                                    <input type="password" class="form-control form-control-sm mr-1" id="Password" name = "password1" placeholder="Enter Password (min 8 characters)">
                             </div>
                             <!--/div-->
                          </div>
@@ -160,7 +159,7 @@
                             <!--div class="form-group col-sm-4"-->
                                 <div class="form-group col-sm-10">
                                     <label class="sr-only" for="Passwordc">Confirm Password</label>
-                                    <input type="password" class="form-control form-control-sm mr-1" id="Passwordc" placeholder="Confirm Password">
+                                    <input type="password" class="form-control form-control-sm mr-1" id="Passwordc" name = "password2"placeholder="Confirm Password">
                             </div>
                             <!--/div-->
                          </div>
@@ -168,20 +167,12 @@
                          <div class="form-row">
                                 <div class="form-group col-sm-10">
                                     <label class="sr-only" for="Phone Number">Phone Number</label>
-                                    <input type="tel" class="form-control form-control-sm mr-1" id="PhoneNumber" placeholder="Enter Phone Number">
+                                    <input type="tel" class="form-control form-control-sm mr-1" id="PhoneNumber" name = "phone_number" placeholder="Enter Phone Number">
                             </div>
                          </div>
 
                           <div class="form-row"><br></div>
-                         <div class="form-row">
-                             <label for="section" class="col-sm-2 align-self-center" >User Type</label>
-                                <div class="btn">
-                                    <button type="radio" class="btn btn-skyblue active" >Home</button>                            
-                            
-                                    <button type="radio" class="btn btn-darkskyblue">Professional</button>
-                                </div>
-                            
-                         </div>
+                         
 
                         <div class="form-row"><br></div>
                         <div class="form-row"><br></div>

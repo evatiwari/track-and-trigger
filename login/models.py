@@ -12,7 +12,3 @@ class UserData(models.Model):
         MinLengthValidator(8)
     ])
     email = models.EmailField()
-    home = models.BooleanField('home status', default = False)
-    professional = models.BooleanField('pro status', default = False)
-
-
