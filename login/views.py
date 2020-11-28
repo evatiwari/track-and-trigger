@@ -12,6 +12,5 @@ def login(request):
     user = UserData.objects.create(user_name=user_name, phone_number=phone_number, email= email, password=password1)
     user.save()
     print("User created")
-
   return render(request, 'login.html')
 

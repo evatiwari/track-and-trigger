@@ -26,7 +26,7 @@ urlpatterns = [
     path('login/', include('login.urls')),
     path('logout/', auth_views.LogoutView.as_view(), name="logout"),
     path('social-auth/', include('social_django.urls', namespace="social")),
-    path('', include('dashboard.urls')),
+    path('dashboard/', include('dashboard.urls')),
     path('accounts/', include('allauth.urls')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
