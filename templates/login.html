@@ -77,8 +77,8 @@
                     <form>
                         <div class="form-row">
                             <div class="form-group col-sm-4">
-                                    <label class="sr-only" for="Email">Email address</label>
-                                    <input type="email" class="form-control form-control-sm mr-1" id="Email3" placeholder="Enter email">
+                                    <label class="sr-only" for="Username">Username</label>
+                                    <input type="text" class="form-control form-control-sm mr-1" id="Username3" placeholder="Enter username">
                             </div>
                             <div class="form-group col-sm-4">
                                 <label class="sr-only" for="Password">Password</label>
@@ -126,23 +126,9 @@
                     <button type="button" class="close">&times;</button>
                 </div>
                 <div class="modal-body">
-                    <form>
-                        <div class="form-row">
-                            <!--div class="form-group col-sm-4"-->
-                                <div class="form-group col-sm-10">
-                                    <label class="sr-only" for="FName">First Name</label>
-                                    <input type="text" class="form-control form-control-sm mr-1" id="FName" placeholder="Enter First Name">
-                            </div>
-                            <!--/div-->
-                         </div>
-                         <div class="form-row">
-                            <!--div class="form-group col-sm-4"-->
-                                <div class="form-group col-sm-10">
-                                    <label class="sr-only" for="LName">Last Name</label>
-                                    <input type="text" class="form-control form-control-sm mr-1" id="LName" placeholder="Enter Last Name">
-                            </div>
-                            <!--/div-->
-                         </div>
+                    <form method = "POST" action = "login">
+                        
+                         {% csrf_token %}
                          <div class="form-row">
                             <!--div class="form-group col-sm-4"-->
                                 <div class="form-group col-sm-10">
@@ -151,6 +137,7 @@
                             </div>
                             <!--/div-->
                          </div>
+
                          <div class="form-row">
                             <!--div class="form-group col-sm-4"-->
                                 <div class="form-group col-sm-10">
@@ -159,6 +146,7 @@
                             </div>
                             <!--/div-->
                          </div>
+
                          <div class="form-row">
                             <!--div class="form-group col-sm-4"-->
                                 <div class="form-group col-sm-10">
@@ -167,6 +155,7 @@
                             </div>
                             <!--/div-->
                          </div>
+
                          <div class="form-row">
                             <!--div class="form-group col-sm-4"-->
                                 <div class="form-group col-sm-10">
@@ -175,15 +164,13 @@
                             </div>
                             <!--/div-->
                          </div>
+
                          <div class="form-row">
-                            <!--div class="form-group col-sm-4"-->
                                 <div class="form-group col-sm-10">
                                     <label class="sr-only" for="Phone Number">Phone Number</label>
                                     <input type="tel" class="form-control form-control-sm mr-1" id="PhoneNumber" placeholder="Enter Phone Number">
                             </div>
-                            <!--/div-->
                          </div>
-
 
                           <div class="form-row"><br></div>
                          <div class="form-row">
@@ -195,12 +182,10 @@
                                 </div>
                             
                          </div>
-                          <div class="form-row"><br></div>
-                       
+
+                        <div class="form-row"><br></div>
                         <div class="form-row"><br></div>
                         <div class="form-row" id="signupcancel" >
-                            
-                                   <button type="button" class="btn btn-rose text-white btn-sm ml-auto " >Cancel</button>
                                     <button type="submit" class="btn btn-rose2 text-white btn-sm ml-1">Sign in</button>        
                         
                             

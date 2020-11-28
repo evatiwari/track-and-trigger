@@ -10,7 +10,7 @@ class InventorySerializer(serializers.ModelSerializer):
     item_set = ItemSerializer(many = True)
     class Meta:
         model = Inventory
-        fields = ('u_id')
+        fields = ('user_name')
 
     def create(self, validated_data):
         item_validated_data = validated_data.pop('item_set')

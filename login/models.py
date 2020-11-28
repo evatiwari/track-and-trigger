@@ -2,8 +2,7 @@ from django.db import models
 from django.core.validators import RegexValidator, MinLengthValidator
 # Create your models here.
 class UserData(models.Model):
-    u_id = models.UUIDField(primary_key=True, editable=False)
-    user_name = models.CharField(max_length = 15, blank = False, validators = [
+    user_name = models.CharField(primary_key = True, max_length = 15, blank = False, validators = [
         RegexValidator(regex='^[a-zA-Z0-9]*$', message = 'Username must be alphanumeric', code = 'invalid_username')
     ])
     phone_number = models.CharField(max_length = 10, blank = False, validators = [
