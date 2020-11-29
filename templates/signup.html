@@ -1,0 +1,145 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- linking bootsrtap4 folders -->
+	{% load static %}  
+	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
+ 
+   <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+   <script src="{% static 'js/jquery.js' %}"></script>
+    <script src="{% static 'js/jquery.bootstrap.modal.forms.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+   <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/login.js' %}"></script>
+    <style> 
+	@import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css););
+	</style>
+    <!--script>alert();</script -->  
+	
+
+	<title>Home Page</title>
+</head>
+
+{% block content %} 
+<body class="bodycolor" >
+	<div class= "container">
+		<div class = "row" ><br/>
+		</div>
+	</div>
+	<div class= "container">
+		<div class = "row" ><br/>
+		</div>
+	</div>
+	<div class= "container">
+		<div class = "row" ><br/>
+		</div>
+	</div>
+	<div class= "container">
+		<div class = "row" >
+			<div class="col-8 offset-2  align-self-center" style="margin: auto; display: block;">
+
+>
+        <div class="modal-dialog modal-lg" role="content">
+            <div class="modal-content">
+                <div class="modal-header" id="signupclose">
+                    <h4 class="modal-title">Sign Up</h4>
+                    <button type="button" class="close">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <form method = "POST" >
+                        
+                         {% csrf_token %}
+                         <div class="form-row">
+                            <!--div class="form-group col-sm-4"-->
+                                <div class="form-group col-sm-10">
+                                    <label class="sr-only" for="Username">Username</label>
+                                    <input type="text" class="form-control form-control-sm mr-1" id="Username" name = "user_name"placeholder="Enter Username">
+                            </div>
+                            <!--/div-->
+                         </div>
+
+                         <div class="form-row">
+                            <!--div class="form-group col-sm-4"-->
+                                <div class="form-group col-sm-10">
+                                    <label class="sr-only" for="Email">Email address</label>
+                                    <input type="email" class="form-control form-control-sm mr-1" id="Email" name="email" placeholder="Enter email">
+                            </div>
+                            <!--/div-->
+                         </div>
+
+                         <div class="form-row">
+                            <!--div class="form-group col-sm-4"-->
+                                <div class="form-group col-sm-10">
+                                    <label class="sr-only" for="Password">Password</label>
+                                    <input type="password" class="form-control form-control-sm mr-1" id="Password" name = "password1" placeholder="Enter Password (min 8 characters)">
+                            </div>
+                            <!--/div-->
+                         </div>
+
+                         <div class="form-row">
+                            <!--div class="form-group col-sm-4"-->
+                                <div class="form-group col-sm-10">
+                                    <label class="sr-only" for="Passwordc">Confirm Password</label>
+                                    <input type="password" class="form-control form-control-sm mr-1" id="Passwordc" name = "password2"placeholder="Confirm Password">
+                            </div>
+                            <!--/div-->
+                         </div>
+
+                         <div class="form-row">
+                                <div class="form-group col-sm-10">
+                                    <label class="sr-only" for="Phone Number">Phone Number</label>
+                                    <input type="tel" class="form-control form-control-sm mr-1" id="PhoneNumber" name = "phone_number" placeholder="Enter Phone Number">
+                            </div>
+                         </div>
+
+                          <div class="form-row"><br></div>
+                         
+
+                        <div class="form-row"><br></div>
+                        <div class="form-row"><br></div>
+                        <div class="form-row" id="signupcancel" >
+                            <button class="btn btn-rose2 text-white btn-sm ml-1"><a href="login">Cancel</a></button>
+                                    <button type="submit" class="btn btn-rose2 text-white btn-sm ml-1">Sign in</button>        
+                        
+                            
+                        </div>
+                    </form>
+                    
+                </div>
+            </div>
+        </div>
+    
+
+
+
+<script type="text/javascript">
+    $('#Buttonsign').click(function(){
+                $('#signupModal').modal('show');
+
+            
+            });
+
+        
+            $('#signupclose').click(function(){
+                if($('#signupclose').children('button').hasClass('close')){
+                    $('#signupModal').modal('hide') ;
+                    }
+
+            });
+            $('#signupcancel').click(function(){
+                if($('#signupcancel').children('button')){
+                    $('#signupModal').modal('hide') ;
+                    }
+
+            });
+</script>
+
+
+
+</body>
+{% endblock %}
+</html>

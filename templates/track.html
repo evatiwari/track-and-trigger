@@ -10,9 +10,9 @@
 
     <!-- Bootstrap CSS -->
     <!-- build:css css/main.css -->
-    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{%static 'css/bootstrap.css' %}">
     <!--link rel="stylesheet"  href="node_modules/bootstrap-social/bootstrap-social.css"-->
-    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <link rel="stylesheet" href="{%static 'css/dashboard.css' %}">
      <style> 
     @import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css););
     </style>
@@ -55,7 +55,7 @@
             </a>
           </li>
           <li class="active">
-            <a href="#">
+            <a href="/dashboard/track/">
               
               <p>Track</p>
             </a>
@@ -73,7 +73,7 @@
             </a>
           </li>
           <li>
-            <a href="#">
+            <a href="/dashboard/logout/">
               
               <p>Logout</p>
             </a>
@@ -90,25 +90,22 @@
           <div class="col-md-8">
             <div class="card">
               <div class="card-header">
-                  <h3 class="text-purple title">Inventory List</h3>
+                  <h3 class="text-purple title">Add Item</h3>
               </div>
               <div class="card-body">  
-            <form @submit.prevent="addItem">
-            <input v-model="newItem" class="form-control" placeholder="Enter your Item">
-        </form>
-        
-        <hr>
-
-        <ul class="list-group">
-          <li v-for="(item, index) in items" :key="index" class="card list-group-item">
-            <button class="btn btn-xs btn-darkviolet text-white" @click="removeItem(index)">Delete</button>
-             
-            <input class="pull-right text-right card" style="width:50%" v-model="item.price">
-          </li>
-          <li class="list-group-item"> 
-            <h4> Total  <span class="pull-right">{{ total }}</span></h4> 
-          </li>
-        </ul>
+              <form @submit.prevent="addItem" action="{% url 'track' %}" method="POST">
+                {% csrf_token %}
+               <input v-model="newItem" class="form-control" name="name" placeholder="Item">
+               <input v-model="newItem" class="form-control" name="quantity" placeholder="Quantity">
+               <button type="submit" class="btn btn-rose1 btn-sm text-white">Enter</button>
+               </form>
+               <br/>
+               <button class="btn btn-rose1 btn-sm text-white"><a href = "/dashboard/tracklist/">View All Items</a></button>
+              <form>
+                <input type="text" placeholder="Search.." name="search" class= "form-control-sm">
+                <button type="submit" class="btn btn-rose1 btn-sm text-white"><i class="fa fa-search"></i></button>
+              </form>
+          <hr>
       </div>
     </div>
   </div>
@@ -117,11 +114,11 @@
           </div>
     </div>
   </div>
-  <script src="{% static 'js/script.js' %}"></script>
+  <script src="script.js"></script>
 
 
 </div>
-<script>
+<script type="text/javascript">
 
     var app = new Vue({
       el: '#app',

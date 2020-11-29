@@ -1,4 +1,4 @@
- {% load static %}
+{% load static %}
 <!DOCTYPE html>
 
 <html lang="en"> 
@@ -22,7 +22,7 @@
 
 
     <!-- endbuild -->
-    <title>Dashboard</title>
+    <title>Tracker</title>
 </head>
 
 <body class="bodycolor">
@@ -49,12 +49,12 @@
       <div class="sidebar-wrapper">
         
         <ul class="nav">
-          <li class="active ">
+          <li>
             <a href="/dashboard/">
               <p>Dashboard</p>
             </a>
           </li>
-          <li>
+          <li class="active">
             <a href="/dashboard/track/">
               
               <p>Track</p>
@@ -83,30 +83,65 @@
     </div>
 
 </div>
-    
-<div class="main">
-  {% block content %}
- <header class = "jumbotron" >
-        <div class = "container">
-            <div class ="row row-header">
-                <div class = "col-12 offset-sm-9">
-                    <h1>Track and Trigger</h1>
-                    <div class="offset-2" >
-                        <p >Welcome, {{ user.username }}</p>
-                    </div>
-                </div>
-                  </div>
+  <div class="main-panel">
 
-                  {% endblock %} 
-                </div>
-            
-    </header>
+<div class="content">
+  <div class="row">
+          <div class="col-md-8">
+            <div class="card">
+              <div class="card-header">
+                  <h3 class="text-purple title">Inventory List</h3>
+              </div>
+              <div class="card-body">  
+              {% for item in items %}
+              {{ item.name }}
+              {{ item.quantity }}
+              {% endfor %}
+          
+      </div>
+    </div>
+  </div>
+              </div>
+            </div>
+          </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+
 
 </div>
+<script type="text/javascript">
 
+    var app = new Vue({
+      el: '#app',
+      computed: {
+        total() {
+          var total = 0
+          this.items.forEach(item => {
+            total = total + parseFloat(item.price)
+          })
+          return total
+        }
+      },
+      data: {
+        items: [],
+        newItem: ''
+      },
+      methods: {
+        addItem() {
+          this.items.push({
+            name: this.newItem,
+            price: 0.00
+          })
+          this.newItem = ''
+        },
+        removeItem(index) {
+          this.items.splice(index, 1)
+        }
+      }
+    })
 
-
-
+  </script>
 
 </body>
 </html>
