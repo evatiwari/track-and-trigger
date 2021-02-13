@@ -28,5 +28,6 @@ urlpatterns = [
     path('social-auth/', include('social_django.urls', namespace="social")),
     path('dashboard/', include('dashboard.urls')),
     path('accounts/', include('allauth.urls')),
+    path('todo/', include('todo.urls')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 

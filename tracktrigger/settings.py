@@ -48,6 +48,8 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
     'sslserver',
+    'todo',
+    'crispy_forms'
 ]
 
 SITE_ID = 1
@@ -94,9 +96,9 @@ WSGI_APPLICATION = 'tracktrigger.wsgi.application'
 DATABASES = {
       'default': {
           'ENGINE': 'django.db.backends.postgresql',
-          'NAME': 'tracktrigger',
+          'NAME': 'Mushkan',
           'USER': 'postgres',
-          'PASSWORD': 'doncampan',
+          'PASSWORD': 'Ra1ncl0ud',
           'HOST': 'localhost',
            }
 
